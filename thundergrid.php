@@ -13,18 +13,45 @@ class Controller {
 }
 
 class Gallery extends Controller {
-    function getLinks() {
-        $links = array();
+    function getLinks($type, $chosenfile) {
 
-        foreach ($this->grid->find() as $file) {
-            $id = (string) $file->file['_id'];
-            $filename = htmlspecialchars($file->file["filename"]);
-            $filetype = isset($file->file["filetype"]) ? $file->file["filetype"] : 'application/octet-stream';
-
-            $links[] = sprintf('<a href="lib/download.php?id=%s">%s</a> | %s', $id, $filename, $filetype);
-        }
-
-        return $links;
+    	if($type == 'list'){
+    
+	        $links = array();
+	
+	        foreach ($this->grid->find() as $file) {
+	            $id = (string) $file->file['_id'];
+	            $filename = htmlspecialchars($file->file["filename"]);
+	            $filetype = isset($file->file["filetype"]) ? $file->file["filetype"] : 'application/octet-stream';
+	
+	            $links[] = sprintf('<a href="lib/download.php?id=%s">%s</a> | %s <br/>', $id, $filename, $filetype);
+	        }
+	        return $links;
+	    }
+	    
+	    
+	    if($type == 'images'){
+    
+	        $links = array();
+	
+	        foreach ($this->grid->find() as $file) {
+	            $id = (string) $file->file['_id'];
+	            $filename = htmlspecialchars($file->file["filename"]);
+	            $filetype = isset($file->file["filetype"]) ? $file->file["filetype"] : 'application/octet-stream';
+	            
+	            if($filetype == 'image/'.$chosenfile.''){
+		            $links[] = sprintf('<img src="lib/download.php?id=%s" height="200px" width="200px">', $id);
+	            }elseif($chosenfile == ''){
+		             $links[] = sprintf('<img src="lib/download.php?id=%s" height="200px" width="200px">', $id);
+	            }
+	            	
+	            
+	        }
+	        return $links;
+	    }
+	    
+	    
+	    
     }
 }
 

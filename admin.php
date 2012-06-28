@@ -1,7 +1,7 @@
 <?php
 
-require '../classes/controller.php';
-require '../classes/admin.php';
+require 'classes/controller.php';
+require 'classes/admin.php';
 
 if (isset($_POST['submit'])) {
     $admin = new Admin();
@@ -13,11 +13,11 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <title>Thundergrid Administration Panel</title>
-    <link rel="stylesheet" href="../lib/style/style.css" type="text/css">
+    <link rel="stylesheet" href="lib/style/style.css" type="text/css">
 </head>
 
 <body>
-    <div id="header"><img src="../lib/images/thundergrid_logo.png"></div>
+    <div id="header"><img src="lib/images/thundergrid_logo.png"></div>
 
     <div class="upload">
         Upload a file to your database:<br><br>

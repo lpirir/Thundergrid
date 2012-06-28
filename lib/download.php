@@ -1,6 +1,7 @@
 <?php
 
-require '../thundergrid.php';
+require '../classes/controller.php';
+require '../classes/download.php';
 
 try {
     $download = new Download();

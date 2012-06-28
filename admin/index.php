@@ -1,6 +1,7 @@
 <?php
 
-require '../thundergrid.php';
+require '../classes/controller.php';
+require '../classes/admin.php';
 
 if (isset($_POST['submit'])) {
     $admin = new Admin();

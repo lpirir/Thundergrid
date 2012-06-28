@@ -1,6 +1,6 @@
 <?php
 
-	class Gallery extends Controller {
+	class Grid extends Controller {
 		function getLinks($type, $chosenfile) {
 
 			$links = array();

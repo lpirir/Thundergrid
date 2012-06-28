@@ -1,7 +1,7 @@
 <?php
 
 require 'classes/controller.php';
-require 'classes/gallery.php';
+require 'classes/grid.php';
 
 /*
 	Setup:
@@ -11,7 +11,7 @@ require 'classes/gallery.php';
 	Second Paramiter = File Type (Only Supported for Images, leave blank for any other type)
 */
 
-$gallery = new Gallery();
+$gallery = new Grid();
 $links = $gallery->getLinks('list', '');
 
 
